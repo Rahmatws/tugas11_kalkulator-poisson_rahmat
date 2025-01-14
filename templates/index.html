@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Distribusi Poisson</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator Distribusi Poisson</h1>
+        <p>
+            <b>Deskripsi Soal:</b> Dalam studi kasus ini, kalkulator digunakan untuk memprediksi jumlah kendaraan mobil yang masuk dan keluar di sebuah tol. 
+            Prediksi dilakukan berdasarkan Distribusi Poisson dengan rumus:
+        </p>
+        <p><b>P(X = k) = (λ^k * e^(-λ)) / k!</b></p>
+        <p>Di mana:
+            <ul>
+                <li>λ: Rata-rata jumlah kendaraan per satuan waktu.</li>
+                <li>k: Jumlah kendaraan yang diamati.</li>
+            </ul>
+        </p>
+        <div class="form-group">
+            <label for="lamda_weekend">Lambda Akhir Pekan (λ):</label>
+            <input type="number" id="lamda_weekend" placeholder="Masukkan Lambda Akhir Pekan (λ)" required>
+        </div>
+        <div class="form-group">
+            <label for="lamda_weekday">Lambda Hari Biasa (λ):</label>
+            <input type="number" id="lamda_weekday" placeholder="Masukkan Lambda Hari Biasa (λ)" required>
+        </div>
+        <div class="form-group">
+            <label for="k">Jumlah kejadian (k):</label>
+            <textarea id="k" placeholder="Masukkan nilai k, satu per baris" rows="5" required></textarea>
+        </div>
+        <button id="calculateBtn">Hitung</button>
+        <div id="steps">
+            <h2>Langkah Penyelesaian</h2>
+            <div id="calculation_steps"></div>
+        </div>
+        <div id="results"></div>
+        <div id="comparison_table"></div>
+        <div id="chart_container">
+            <h2>Grafik Perbandingan</h2>
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
